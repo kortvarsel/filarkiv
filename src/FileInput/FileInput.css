@@ -1,0 +1,9 @@
+.indFile {
+    align-self: left;
+    }
+    .textName {
+        width:50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
