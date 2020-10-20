@@ -19,11 +19,7 @@ import chooseFile from './chooseFile.png';
 
 
 var firebaseConfig = {
-    apiKey: 'AIzaSyBLIpmFo07grN1ueW3CNnPag1nmmsh_84I',
-    authDomain: 'filarkiv-75d02.firebaseapp.com',
-    databaseURL: 'https://filarkiv-75d02.firebaseio.com',
-    storageBucket: 'filarkiv-75d02.appspot.com',
-    messagingSenderId: "866884287442"
+
 };
 firebase.initializeApp(firebaseConfig);
 
