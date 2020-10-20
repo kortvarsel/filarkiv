@@ -1,9 +1,75 @@
-.indFile {
-    align-self: left;
+.container{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    
+}
+.hidden {
+    visibility: hidden;
+}
+.raise{
+    z-index:1;
+}
+#file-upload-button{
+    display:none
+}
+.uploadContainer {
+    margin-bottom:30px;
+    justify-content:center;
+    display:flex;
+    flex-basis:100%;
+}
+
+.contentContainer {
+    margin-top:10%;
+    width:420px;
+    display: flex;
+    align-content:center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.itemContainer{
+    align-content:left;
+    justify-content: left;
+    display:flex;
+    flex-basis:100%;
+    flex-wrap: wrap;
+    height:220px;
+    overflow-y: auto;
+    min-height: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color:white;
+    border-radius:10px;
+    
+}
+.break{
+    width:40px;
+    border-top:1px;
+    margin-bottom:30px;
+    border-style:solid;
+    border-color:white;
+}
+.item {
+    margin:10px;
     }
-    .textName {
-        width:50px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+.textName {
+    width:50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align:center;
+    font-size:10px;
+    margin-bottom:5px;
+
+    }
+.loadIcon{
+    text-align:center;
+}
+.metaIcon{
+    object-fit: contain;
+}
