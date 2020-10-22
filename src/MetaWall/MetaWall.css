@@ -1,7 +1,9 @@
 .metaData {
-
     flex-basis:100%;
     margin-left:15px;
     margin-top:10px;
     font:'Muli-Italic';
+}
+p{
+    color:white;
 }

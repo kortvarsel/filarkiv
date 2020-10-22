@@ -6,8 +6,24 @@
     right:0;
     top:0;
     bottom:0;
-    
 }
+.customInput{
+    background-color:rgb(76, 110, 172);
+    color:rgb(255, 255, 255);
+    border:solid;
+    border-width:1px;
+    border-radius:4px;
+    margin-bottom:5px;
+    padding:6px;
+    width:94%;
+}
+.uploadButton {
+    margin-top:5px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(255, 255, 255, 0.308);
+    opacity: 1; /* Firefox */
+  }
 .hidden {
     visibility: hidden;
 }

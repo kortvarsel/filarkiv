@@ -19,7 +19,11 @@ import chooseFile from './chooseFile.png';
 
 
 var firebaseConfig = {
-
+    apiKey: 'AIzaSyBLIpmFo07grN1ueW3CNnPag1nmmsh_84I',
+    authDomain: 'filarkiv-75d02.firebaseapp.com',
+    databaseURL: 'https://filarkiv-75d02.firebaseio.com',
+    storageBucket: 'filarkiv-75d02.appspot.com',
+    messagingSenderId: "866884287442"
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -37,8 +41,8 @@ class FileInput extends Component {
         this.state = {
             itemBucket: [],
             metaRender: [],
-            name:'',
-            comment:''
+            name:'N/A',
+            comment:'N/A'
         };
     }
 
@@ -73,15 +77,13 @@ class FileInput extends Component {
         : this.setState({
             comment: event.target.value,
         })
-        console.log(this.state.name)
     }
     
     downloadItems = event => {
         var selectedFile = event.target.dataset.file;
         storageRef.child(selectedFile).getDownloadURL().then(url => {
-            // `url` is the download URL for 'images/stars.jpg'
 
-            // This can be downloaded directly:
+
             var xhr = new XMLHttpRequest();
             xhr.responseType = 'blob';
             xhr.onload = (selectedFile => {
@@ -133,7 +135,6 @@ class FileInput extends Component {
                 metaRender: current
             })
         });
-
     }
 
     updateItems = () => {
@@ -172,14 +173,14 @@ class FileInput extends Component {
                         <div className="upload">
                             <form onSubmit={this.uploadItems}>
                                 <label>
-                                <input type="text" data-type="name" value="Name" onChange={this.handleChange}/>
+                                <input className="customInput" type="text" data-type="name" placeholder="Name" onChange={this.handleChange}/>
                                 <br/>
-                                <input type="text" data-type="comment" value="Comment" onChange={this.handleChange}/>
+                                <input className="customInput" type="text" data-type="comment" placeholder="Comment" onChange={this.handleChange}/>
                                 <br/>
-                                <input type="file" ref={this.fileInput} />
+                                <input style={{color: 'white'}} type="file" ref={this.fileInput} />
                                 </label>
                                 <br />
-                                <button type="submit">Upload</button>
+                                <button className="uploadButton" type="submit">Upload</button>
                             </form>
                         </div>
                     </div>

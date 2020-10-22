@@ -9,20 +9,48 @@ class MetaWall extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        metaRender: {
-        },
+        metaRender: this.props.meta
       }
+      const options = {
+        timeZone:"Africa/Accra",
+        hour12 : true,
+        hour:  "2-digit",
+        minute: "2-digit",
+       second: "2-digit"
+     };
     }
     componentDidUpdate(prevProps){
         let checkCurrent = this.props.meta
         if (prevProps.meta !== this.props.meta){
             this.setState({
                 metaRender: checkCurrent,
+                name: checkCurrent.customMetadata.name,
+                comment: checkCurrent.customMetadata.comment
             })
         }  
     }
     checkAdditionalData = () => {
-
+            if (this.state.name !== 'N/A' && this.state.comment !== 'N/A'){
+                return (
+                    <div>
+                <p>Comment: {this.state.comment}</p>
+                <p>Added By: {this.state.name}</p>
+                </div>
+                );
+            } else if (this.state.name !== 'N/A' && this.state.comment === 'N/A') {
+                return (<div>
+                <p>Added By: {this.state.name}</p>
+                </div>
+                );
+            } else if (this.state.name === 'N/A' && this.state.comment !== 'N/A') {
+                return (<div>
+                <p>Comment: {this.state.comment}</p>
+                </div>
+                );
+            } else {
+                return
+            }
+            
     }
     sizeCheck = () => {
         if (Object.keys(this.state.metaRender).length > 0){
@@ -37,19 +65,24 @@ class MetaWall extends Component {
                 index += 1;
             }   
             size = tempSize.toFixed(2);
-
             return <p>Size: {size} {sizeAffix[index]}</p>
         }
     }
+    parseDate = () => {
+        var date = new Date(this.state.metaRender.timeCreated);
+        console.log(date.toDateString())
+        var newDate = date.toDateString();
+        return newDate
+    }
     render() {
+        
         return (
             <div className="metaData" style={{visibility: Object.keys(this.state.metaRender).length > 0 ? 'visible' : 'hidden' }}>
 
                 <p>File Name: {this.state.metaRender.fullPath}</p>
-                <p>File Type: {this.state.metaRender.contentType}</p>
-                {this.checkAdditionalData}
-                <p>Date Added: {this.state.metaRender.timeCreated}</p>
+                {this.checkAdditionalData()}
                 {this.sizeCheck()}
+                <p>Date Added: {this.parseDate()}</p>
 
                 
                 
